@@ -8,6 +8,7 @@ import DefaultNotificationBody from './DefaultNotificationBody';
 const styles = StyleSheet.create({
   notification: {
     position: 'absolute',
+    bottom: -90,
     width: '100%',
   },
 });
@@ -16,7 +17,7 @@ class Notification extends Component {
   constructor() {
     super();
 
-    this.heightOffset = isIphoneX() ? getStatusBarHeight() : 0;
+    this.heightOffset = isIphoneX() ? 10 : 0;
 
     this.show = this.show.bind(this);
     this.showNotification = this.showNotification.bind(this);
@@ -121,7 +122,7 @@ class Notification extends Component {
               {
                 translateY: animatedValue.interpolate({
                   inputRange: [0, 1],
-                  outputRange: [-height + topOffset, 0],
+                  outputRange: [0, -height + topOffset],
                 }),
               },
             ],
